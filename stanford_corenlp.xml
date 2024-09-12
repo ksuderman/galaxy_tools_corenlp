@@ -1,0 +1,113 @@
+<tool id="stanford_corenlp" name="Stanford CoreNLP Annotators" version="4.5.7+galaxy0" python_template_version="3.5" profile="21.05">
+    <requirements>
+		<requirement type="binary">java</requirement>
+    </requirements>
+    <version_command><![CDATA[
+echo "4.5.7"
+    ]]></version_command>
+    <command detect_errors="exit_code"><![CDATA[
+    java -jar ${__tool_directory__}/corenlp-4.5.7.jar
+    #if $annotators == "tokenize" 
+    -annotators tokenize,ssplit
+    #else if $annotators == "pos" 
+    -annotators tokenize,ssplit,pos,lemma
+    #else if $annotators == "ner"
+    -annotators tokenize,ssplit,pos,lemma,ner
+    #else if $annotators == "parse"
+    -annotators tokenize,ssplit,pos,lemma,ner,parse
+    #else if $annotators == "coref"
+    -annotators tokenize,ssplit,pos,lemma,ner,parse,hcoref
+    #else 
+    -annotators tokenize,ssplit,pos,lemma,parse,sentiment
+    #end if
+    -outputFormat $format
+    -file ${input} && mv `basename ${input}`.$format ${outputFile}
+    ]]></command>
+    <inputs>
+	    <param name="input" type="data" format="txt" label="Text"/>	
+	    <param name="annotators" type="select" label="Annotation types">
+	    	<option value="tokenize" selected="true">Segmentation (sentences and tokens)</option> 
+	    	<option value="pos">Part of speech and lemmas</option>
+	    	<option value="ner">Named entity recognizer</option>
+	    	<option value="parse">Dependency parser</option>
+	    	<option value="coref">Coreference</option>
+	    	<option value="sentiment">Sentiment analysis</option>
+	    </param>
+		<param name="format" type="select" label="Output format">
+			<option value="json" selected="true">JSON</option>
+			<option value="conll">CoNLL</option>
+			<option value="conllu">CoNLL-U</option>
+		</param>
+    </inputs>
+    <outputs>
+    	<data name="outputFile" format="txt"/>
+    </outputs>
+    <tests>
+    	<test>
+    		<param name="input" value="input.txt"/>
+    		<param name="annotators" value="tokenize"/>
+    		<param name="format" value="json"/>
+    		<output name="outputFile">
+				<assert_contents>
+					<has_json_property_with_text property="word" text="John"/>
+					<has_json_property_with_text property="word" text="Smith"/>
+				</assert_contents>
+			</output>
+    	</test>
+    	<test>
+    		<param name="input" value="input.txt"/>
+    		<param name="annotators" value="parse"/>
+    		<param name="format" value="conll"/>
+    		<output name="outputFile" file="input.txt.conll"/>
+    	</test>
+    	<test>
+    		<param name="input" value="input.txt"/>
+    		<param name="annotators" value="sentiment"/>
+    		<param name="format" value="json"/>
+    		<output name="outputFile">
+				<assert_contents>
+					<has_json_property_with_text property="sentiment" text="Negative"/>
+					<has_json_property_with_text property="sentimentValue" text="1"/>
+				</assert_contents>
+			</output>
+    	</test>
+    </tests>
+    <help><![CDATA[
+    
+Stanford CoreNLP
+================
+    
+Galaxy wrappers for common annotators from the `Stanford CoreNLP <https://stanfordnlp.github.io/CoreNLP/index.html>`_ package.  The
+following annotators are provided:
+
+Segmentation
+	Sentences and tokens annotation only.
+	
+Part of speech and lemmas
+	Include the sentence annotators and adds part of speech (POS) and lemmas to each token.
+	
+Named entity recognition (NER)
+	Includes the sentence, token with POS and lemmas, as well as named entities such as PERSON, ORGANIZATION, PLACE, etc.
+	
+Dependency parse
+	Includes all of the annotators for NER as well as a dependency parse to
+	find the dependencies between the words and phrases of a sentence in order 
+	to determine its grammatical structure.  Some of the tree structures can
+	only be properly rendered in the JSON output format.
+	
+Coreference
+	Find all expressions that refer to the same entity.  Includes all of the
+	annotators for dependency parsing as well.
+	
+Sentiment analysis
+    Perform sentiment analysis on the dependency tree and assign sentiment scores
+    (Positive, Neutral, Negative) and probabilities to sentences and phrases in
+    the text.  
+    
+    See: https://stanfordnlp.github.io/CoreNLP/sentiment.html
+	
+    ]]></help>
+    <citations>
+    	<citation type="doi">10.3115/v1/P14-5010</citation>
+    </citations>
+</tool>
