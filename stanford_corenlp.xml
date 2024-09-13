@@ -108,6 +108,13 @@ Sentiment analysis
     
     See: https://stanfordnlp.github.io/CoreNLP/sentiment.html
 	
+**NOTE**
+
+Please note that not all annotation types can be represented in all of the output
+format.  In particular, the `CoNLL` and `CoNLL-U` formats will not include any 
+annotations from sentiment analysis and limited annotations from the dependency 
+parse.
+
     ]]></help>
     <citations>
     	<citation type="doi">10.3115/v1/P14-5010</citation>
