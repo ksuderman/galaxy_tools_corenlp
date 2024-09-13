@@ -1,3 +1,4 @@
 .DS_Store
 .venv/
-test_tool_output.*
+test_tool_output.html
+test_tool_output.json
