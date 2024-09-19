@@ -1,32 +1,35 @@
-<tool id="stanford_corenlp" name="Stanford CoreNLP Annotators" version="4.5.7+galaxy0" python_template_version="3.5" profile="21.05">
+<tool id="stanford_corenlp" name="Stanford CoreNLP Annotators in Docker" version="@VERSION@+galaxy@VERSION_SUFFIX@" python_template_version="3.5" profile="21.05">
+    <macros>
+        <import>macros.xml</import>
+    </macros>
     <requirements>
-		<requirement type="binary">java</requirement>
+		<container type="docker">ksuderman/corenlp:@VERSION@</container>
     </requirements>
     <version_command><![CDATA[
-echo "4.5.7"
+echo "@VERSION@"
     ]]></version_command>
     <command detect_errors="exit_code"><![CDATA[
-    java -cp $__tool_directory__/stanford-corenlp-4.5.7/* edu.stanford.nlp.pipeline.StanfordCoreNLP
-    #if $annotators == "segment" 
-    -annotators tokenize,ssplit
-    #else if $annotators == "pos" 
-    -annotators tokenize,ssplit,pos,lemma
+    corenlp
+    #if $annotators == "tokenize"
+    -annotators tokenize
+    #else if $annotators == "pos"
+    -annotators tokenize,pos,lemma
     #else if $annotators == "ner"
-    -annotators tokenize,ssplit,pos,lemma,ner
+    -annotators tokenize,pos,lemma,ner
     #else if $annotators == "parse"
-    -annotators tokenize,ssplit,pos,lemma,ner,parse
+    -annotators tokenize,pos,lemma,ner,parse
     #else if $annotators == "coref"
-    -annotators tokenize,ssplit,pos,lemma,ner,parse,coref
-    #else 
-    -annotators tokenize,ssplit,pos,lemma,parse,sentiment
+    -annotators tokenize,pos,lemma,ner,parse,coref
+    #else
+    -annotators tokenize,pos,lemma,parse,sentiment
     #end if
     -outputFormat $format
     -file ${input} && cp `basename ${input}`.$format ${outputFile}
     ]]></command>
     <inputs>
-	    <param name="input" type="data" format="txt" label="Text"/>	
+	    <param name="input" type="data" format="txt" label="Text"/>
 	    <param name="annotators" type="select" label="Annotation types">
-	    	<option value="segment" selected="true">Segmentation (sentences and tokens)</option> 
+	    	<option value="tokenize" selected="true">Segmentation (sentences and tokens)</option>
 	    	<option value="pos">Part of speech and lemmas</option>
 	    	<option value="ner">Named entity recognizer</option>
 	    	<option value="parse">Dependency parser</option>
@@ -75,44 +78,44 @@ echo "4.5.7"
     	</test>
     </tests>
     <help><![CDATA[
-    
+
 Stanford CoreNLP
 ================
-    
+
 Galaxy wrappers for common annotators from the `Stanford CoreNLP <https://stanfordnlp.github.io/CoreNLP/index.html>`_ package.  The
 following annotators are provided:
 
 Segmentation
 	Sentences and tokens annotation only.
-	
+
 Part of speech and lemmas
 	Include the sentence annotators and adds part of speech (POS) and lemmas to each token.
-	
+
 Named entity recognition (NER)
 	Includes the sentence, token with POS and lemmas, as well as named entities such as PERSON, ORGANIZATION, PLACE, etc.
-	
+
 Dependency parse
 	Includes all of the annotators for NER as well as a dependency parse to
-	find the dependencies between the words and phrases of a sentence in order 
+	find the dependencies between the words and phrases of a sentence in order
 	to determine its grammatical structure.  Some of the tree structures can
 	only be properly rendered in the JSON output format.
-	
+
 Coreference
 	Find all expressions that refer to the same entity.  Includes all of the
 	annotators for dependency parsing as well.
-	
+
 Sentiment analysis
     Perform sentiment analysis on the dependency tree and assign sentiment scores
     (Positive, Neutral, Negative) and probabilities to sentences and phrases in
-    the text.  
-    
+    the text.
+
     See: https://stanfordnlp.github.io/CoreNLP/sentiment.html
-	
+
 **NOTE**
 
 Please note that not all annotation types can be represented in all of the output
-format.  In particular, the `CoNLL` and `CoNLL-U` formats will not include any 
-annotations from sentiment analysis and limited annotations from the dependency 
+format.  In particular, the `CoNLL` and `CoNLL-U` formats will not include any
+annotations from sentiment analysis and limited annotations from the dependency
 parse.
 
     ]]></help>
