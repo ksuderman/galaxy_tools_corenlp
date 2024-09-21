@@ -24,7 +24,12 @@ echo "@VERSION@"
     -annotators tokenize,pos,lemma,parse,sentiment
     #end if
     -outputFormat $format
-    -file ${input} && cp `basename ${input}`.$format ${outputFile}
+    -file ${input} &&
+    #if $format == "text"
+    	cp `basename ${input}`.out ${outputFile}
+    #else
+    	cp `basename ${input}`.$format ${outputFile}
+	#end if
     ]]></command>
     <inputs>
 	    <param name="input" type="data" format="txt" label="Text"/>
@@ -66,6 +71,12 @@ echo "@VERSION@"
     		<output name="outputFile" file="input.txt.conll"/>
     	</test>
     	<test>
+    		<param name="input" value="input.txt"/>
+    		<param name="annotators" value="parse"/>
+    		<param name="format" value="conllu"/>
+    		<output name="outputFile" file="input.txt.conllu"/>
+    	</test>
+    	<test>
     		<param name="input" value="sa-input.txt"/>
     		<param name="annotators" value="sentiment"/>
     		<param name="format" value="json"/>
@@ -76,6 +87,29 @@ echo "@VERSION@"
 				</assert_contents>
 			</output>
     	</test>
+		<test>
+			<param name="input" value="2.txt"/>
+			<param name="annotators" value="tokenize"/>
+			<param name="format" value="text"/>
+			<output name="outputFile">
+				<assert_contents>
+					<has_text text=" (2 sentences, 12 tokens)"/>
+					<has_text text="Sentence #1 (6 tokens):"/>
+					<has_text text="Sentence #2 (6 tokens):"/>
+					<has_n_lines n="23" delta="1"/>
+				</assert_contents>
+			</output>
+		</test>
+		<test>
+			<param name="input" value="2.txt"/>
+			<param name="annotators" value="tokenize"/>
+			<param name="format" value="xml"/>
+			<output name="outputFile">
+				<assert_contents>
+					<is_valid_xml/>
+				</assert_contents>
+			</output>
+		</test>
     </tests>
     <help><![CDATA[
 
