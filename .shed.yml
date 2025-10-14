@@ -11,6 +11,7 @@ long_description: |
   Automated ToolShed tests are skipped due to large model file requirements (424MB).
 categories:
   - Text Manipulation
+  - Natural Language Processing
 homepage_url: https://stanfordnlp.github.io/CoreNLP/
 remote_repository_url: https://github.com/ksuderman/galaxy_tools_corenlp
 type: unrestricted
