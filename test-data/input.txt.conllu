@@ -19,5 +19,5 @@
 19	to	to	_	IN	_	21	case	_	_
 20	the	the	_	DT	_	21	det	_	_
 21	theater	theater	_	NN	_	18	obl	_	SpaceAfter=No
-22	.	.	_	.	_	3	punct	_	_
+22	.	.	_	.	_	3	punct	_	SpacesAfter=\n\n
 
