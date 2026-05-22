@@ -1,0 +1,695 @@
+{
+    "summary": {
+        "num_errors": 0,
+        "num_failures": 0,
+        "num_skips": 0,
+        "num_tests": 6
+    },
+    "tests": [
+        {
+            "data": {
+                "inputs": {
+                    "annotators": "tokenize",
+                    "format": "json",
+                    "input": {
+                        "id": "20195186e24efb48",
+                        "src": "hda"
+                    },
+                    "language_model": "en"
+                },
+                "job": {
+                    "command_line": "ln -s '/Users/suderman/Workspaces/JHU/NLP/tools/galaxy_tools_corenlp/test-data/stanford-corenlp-4.5.10-models-english.jar' ./model.jar && echo 'pos.model = edu/stanford/nlp/models/pos-tagger/english-bidirectional-distsim.tagger' > corenlp.properties && echo 'parse.model = edu/stanford/nlp/models/lexparser/englishPCFG.caseless.ser.gz' >> corenlp.properties && echo 'ner.model = edu/stanford/nlp/models/ner/english.all.3class.caseless.distsim.crf.ser.gz,edu/stanford/nlp/models/ner/english.muc.7class.caseless.distsim.crf.ser.gz,edu/stanford/nlp/models/ner/english.conll.4class.caseless.distsim.crf.ser.gz' >> corenlp.properties && echo 'ner.applyFineGrained = false' >> corenlp.properties && echo 'coref.algorithm = statistical' >> corenlp.properties && echo 'sentiment.model = edu/stanford/nlp/models/sentiment/sentiment.binary.ser.gz' >> corenlp.properties && export CLASSPATH=\"./model.jar:/opt/corenlp/*:/opt/corenlp:$CLASSPATH\" && java -Xmx4g -cp \"$CLASSPATH\" edu.stanford.nlp.pipeline.StanfordCoreNLP -props corenlp.properties -annotators tokenize -outputFormat json -outputDirectory . -file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/b/8/b/dataset_b8b86742-fbf1-4857-b397-36570334b62b.dat && mv `basename /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/b/8/b/dataset_b8b86742-fbf1-4857-b397-36570334b62b.dat`.json /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/job_working_directory/000/2/outputs/dataset_3749b9bf-9f5e-4f34-9588-8864056f0eaa.dat",
+                    "command_version": "4.5.10",
+                    "copied_from_job_id": null,
+                    "create_time": "2026-05-22T16:52:08.796438",
+                    "dependencies": [],
+                    "exit_code": 0,
+                    "external_id": "91530",
+                    "galaxy_version": "25.1",
+                    "handler": null,
+                    "history_id": "20195186e24efb48",
+                    "id": "29ef25ee1076898d",
+                    "inputs": {
+                        "input": {
+                            "id": "20195186e24efb48",
+                            "src": "hda",
+                            "uuid": "b8b86742-fbf1-4857-b397-36570334b62b"
+                        }
+                    },
+                    "job_messages": [],
+                    "job_metrics": [
+                        {
+                            "name": "container_id",
+                            "plugin": "core",
+                            "raw_value": "ksuderman/corenlp:4.5.10",
+                            "title": "Container ID",
+                            "value": "ksuderman/corenlp:4.5.10"
+                        },
+                        {
+                            "name": "container_type",
+                            "plugin": "core",
+                            "raw_value": "docker",
+                            "title": "Container Type",
+                            "value": "docker"
+                        },
+                        {
+                            "name": "galaxy_slots",
+                            "plugin": "core",
+                            "raw_value": "1.0000000",
+                            "title": "Cores Allocated",
+                            "value": "1"
+                        },
+                        {
+                            "name": "start_epoch",
+                            "plugin": "core",
+                            "raw_value": "1779468729.0000000",
+                            "title": "Job Start Time",
+                            "value": "2026-05-22 12:52:09"
+                        },
+                        {
+                            "name": "end_epoch",
+                            "plugin": "core",
+                            "raw_value": "1779468743.0000000",
+                            "title": "Job End Time",
+                            "value": "2026-05-22 12:52:23"
+                        },
+                        {
+                            "name": "runtime_seconds",
+                            "plugin": "core",
+                            "raw_value": "14.0000000",
+                            "title": "Job Runtime (Wall Clock)",
+                            "value": "14 seconds"
+                        }
+                    ],
+                    "job_runner_name": null,
+                    "job_stderr": "",
+                    "job_stdout": "",
+                    "model_class": "Job",
+                    "output_collections": {},
+                    "outputs": {
+                        "outputFile": {
+                            "id": "29ef25ee1076898d",
+                            "src": "hda",
+                            "uuid": "3749b9bf-9f5e-4f34-9588-8864056f0eaa"
+                        }
+                    },
+                    "params": {
+                        "__input_ext": "\"input\"",
+                        "annotators": "\"tokenize\"",
+                        "chromInfo": "\"/Users/suderman/Workspaces/JHU/galaxy/tool-data/shared/ucsc/chrom/?.len\"",
+                        "dbkey": "\"?\"",
+                        "format": "\"json\"",
+                        "language_model": "\"en\""
+                    },
+                    "state": "ok",
+                    "stderr": "WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested\nAdding annotator tokenize\n\nProcessing file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/b/8/b/dataset_b8b86742-fbf1-4857-b397-36570334b62b.dat ... writing to /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/job_working_directory/000/2/working/dataset_b8b86742-fbf1-4857-b397-36570334b62b.dat.json\nAnnotating file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/b/8/b/dataset_b8b86742-fbf1-4857-b397-36570334b62b.dat ... done [0.2 sec].\n\nAnnotation pipeline timing information:\nTokenizerAnnotator: 0.2 sec.\nTOTAL: 0.2 sec. for 22 tokens at 118.9 tokens/sec.\nPipeline setup: 0.2 sec.\nTotal time for StanfordCoreNLP pipeline: 0.9 sec.\n",
+                    "stdout": "",
+                    "tool_id": "stanford_corenlp",
+                    "tool_stderr": "WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested\nAdding annotator tokenize\n\nProcessing file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/b/8/b/dataset_b8b86742-fbf1-4857-b397-36570334b62b.dat ... writing to /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/job_working_directory/000/2/working/dataset_b8b86742-fbf1-4857-b397-36570334b62b.dat.json\nAnnotating file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/b/8/b/dataset_b8b86742-fbf1-4857-b397-36570334b62b.dat ... done [0.2 sec].\n\nAnnotation pipeline timing information:\nTokenizerAnnotator: 0.2 sec.\nTOTAL: 0.2 sec. for 22 tokens at 118.9 tokens/sec.\nPipeline setup: 0.2 sec.\nTotal time for StanfordCoreNLP pipeline: 0.9 sec.\n",
+                    "tool_stdout": "",
+                    "update_time": "2026-05-22T16:52:23.284604",
+                    "user_email": "planemo@galaxyproject.org",
+                    "user_id": "20195186e24efb48"
+                },
+                "status": "success",
+                "test_index": 0,
+                "time_seconds": 24.64665913581848,
+                "tool_id": "stanford_corenlp",
+                "tool_version": "4.5.10+galaxy4"
+            },
+            "has_data": true,
+            "id": "stanford_corenlp-0"
+        },
+        {
+            "data": {
+                "inputs": {
+                    "annotators": "parse",
+                    "format": "conll",
+                    "input": {
+                        "id": "b79ae497816be34f",
+                        "src": "hda"
+                    },
+                    "language_model": "en"
+                },
+                "job": {
+                    "command_line": "ln -s '/Users/suderman/Workspaces/JHU/NLP/tools/galaxy_tools_corenlp/test-data/stanford-corenlp-4.5.10-models-english.jar' ./model.jar && echo 'pos.model = edu/stanford/nlp/models/pos-tagger/english-bidirectional-distsim.tagger' > corenlp.properties && echo 'parse.model = edu/stanford/nlp/models/lexparser/englishPCFG.caseless.ser.gz' >> corenlp.properties && echo 'ner.model = edu/stanford/nlp/models/ner/english.all.3class.caseless.distsim.crf.ser.gz,edu/stanford/nlp/models/ner/english.muc.7class.caseless.distsim.crf.ser.gz,edu/stanford/nlp/models/ner/english.conll.4class.caseless.distsim.crf.ser.gz' >> corenlp.properties && echo 'ner.applyFineGrained = false' >> corenlp.properties && echo 'coref.algorithm = statistical' >> corenlp.properties && echo 'sentiment.model = edu/stanford/nlp/models/sentiment/sentiment.binary.ser.gz' >> corenlp.properties && export CLASSPATH=\"./model.jar:/opt/corenlp/*:/opt/corenlp:$CLASSPATH\" && java -Xmx4g -cp \"$CLASSPATH\" edu.stanford.nlp.pipeline.StanfordCoreNLP -props corenlp.properties -annotators tokenize,pos,lemma,ner,parse -outputFormat conll -outputDirectory . -file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/5/1/6/dataset_51681cfb-4675-496f-9aaf-724e6507d780.dat && mv `basename /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/5/1/6/dataset_51681cfb-4675-496f-9aaf-724e6507d780.dat`.conll /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/job_working_directory/000/4/outputs/dataset_8c183ba7-0888-4691-88cf-dd060c11d15b.dat",
+                    "command_version": "4.5.10",
+                    "copied_from_job_id": null,
+                    "create_time": "2026-05-22T16:52:28.294874",
+                    "dependencies": [],
+                    "exit_code": 0,
+                    "external_id": "91585",
+                    "galaxy_version": "25.1",
+                    "handler": null,
+                    "history_id": "29ef25ee1076898d",
+                    "id": "0e61b6e86607e7c4",
+                    "inputs": {
+                        "input": {
+                            "id": "b79ae497816be34f",
+                            "src": "hda",
+                            "uuid": "51681cfb-4675-496f-9aaf-724e6507d780"
+                        }
+                    },
+                    "job_messages": [],
+                    "job_metrics": [
+                        {
+                            "name": "container_id",
+                            "plugin": "core",
+                            "raw_value": "ksuderman/corenlp:4.5.10",
+                            "title": "Container ID",
+                            "value": "ksuderman/corenlp:4.5.10"
+                        },
+                        {
+                            "name": "container_type",
+                            "plugin": "core",
+                            "raw_value": "docker",
+                            "title": "Container Type",
+                            "value": "docker"
+                        },
+                        {
+                            "name": "galaxy_slots",
+                            "plugin": "core",
+                            "raw_value": "1.0000000",
+                            "title": "Cores Allocated",
+                            "value": "1"
+                        },
+                        {
+                            "name": "start_epoch",
+                            "plugin": "core",
+                            "raw_value": "1779468748.0000000",
+                            "title": "Job Start Time",
+                            "value": "2026-05-22 12:52:28"
+                        },
+                        {
+                            "name": "end_epoch",
+                            "plugin": "core",
+                            "raw_value": "1779468776.0000000",
+                            "title": "Job End Time",
+                            "value": "2026-05-22 12:52:56"
+                        },
+                        {
+                            "name": "runtime_seconds",
+                            "plugin": "core",
+                            "raw_value": "28.0000000",
+                            "title": "Job Runtime (Wall Clock)",
+                            "value": "28 seconds"
+                        }
+                    ],
+                    "job_runner_name": null,
+                    "job_stderr": "",
+                    "job_stdout": "",
+                    "model_class": "Job",
+                    "output_collections": {},
+                    "outputs": {
+                        "outputFile": {
+                            "id": "0e61b6e86607e7c4",
+                            "src": "hda",
+                            "uuid": "8c183ba7-0888-4691-88cf-dd060c11d15b"
+                        }
+                    },
+                    "params": {
+                        "__input_ext": "\"input\"",
+                        "annotators": "\"parse\"",
+                        "chromInfo": "\"/Users/suderman/Workspaces/JHU/galaxy/tool-data/shared/ucsc/chrom/?.len\"",
+                        "dbkey": "\"?\"",
+                        "format": "\"conll\"",
+                        "language_model": "\"en\""
+                    },
+                    "state": "ok",
+                    "stderr": "WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested\nAdding annotator tokenize\nAdding annotator pos\nLoading POS tagger from edu/stanford/nlp/models/pos-tagger/english-bidirectional-distsim.tagger ... done [2.9 sec].\nAdding annotator lemma\nAdding annotator ner\nLoading classifier from edu/stanford/nlp/models/ner/english.all.3class.caseless.distsim.crf.ser.gz ... done [4.1 sec].\nLoading classifier from edu/stanford/nlp/models/ner/english.muc.7class.caseless.distsim.crf.ser.gz ... done [1.3 sec].\nLoading classifier from edu/stanford/nlp/models/ner/english.conll.4class.caseless.distsim.crf.ser.gz ... done [2.1 sec].\nnumeric classifiers: true; SUTime: false [no docDate]; fine grained: false\nAdding annotator parse\nLoading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.caseless.ser.gz ... done [1.7 sec].\n\nProcessing file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/5/1/6/dataset_51681cfb-4675-496f-9aaf-724e6507d780.dat ... writing to /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/job_working_directory/000/4/working/dataset_51681cfb-4675-496f-9aaf-724e6507d780.dat.conll\nAnnotating file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/5/1/6/dataset_51681cfb-4675-496f-9aaf-724e6507d780.dat ... done [5.5 sec].\n\nAnnotation pipeline timing information:\nTokenizerAnnotator: 0.1 sec.\nPOSTaggerAnnotator: 0.3 sec.\nMorphaAnnotator: 0.6 sec.\nNERCombinerAnnotator: 0.7 sec.\nParserAnnotator: 3.8 sec.\nTOTAL: 5.5 sec. for 22 tokens at 4.0 tokens/sec.\nPipeline setup: 13.1 sec.\nTotal time for StanfordCoreNLP pipeline: 18.8 sec.\n",
+                    "stdout": "",
+                    "tool_id": "stanford_corenlp",
+                    "tool_stderr": "WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested\nAdding annotator tokenize\nAdding annotator pos\nLoading POS tagger from edu/stanford/nlp/models/pos-tagger/english-bidirectional-distsim.tagger ... done [2.9 sec].\nAdding annotator lemma\nAdding annotator ner\nLoading classifier from edu/stanford/nlp/models/ner/english.all.3class.caseless.distsim.crf.ser.gz ... done [4.1 sec].\nLoading classifier from edu/stanford/nlp/models/ner/english.muc.7class.caseless.distsim.crf.ser.gz ... done [1.3 sec].\nLoading classifier from edu/stanford/nlp/models/ner/english.conll.4class.caseless.distsim.crf.ser.gz ... done [2.1 sec].\nnumeric classifiers: true; SUTime: false [no docDate]; fine grained: false\nAdding annotator parse\nLoading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.caseless.ser.gz ... done [1.7 sec].\n\nProcessing file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/5/1/6/dataset_51681cfb-4675-496f-9aaf-724e6507d780.dat ... writing to /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/job_working_directory/000/4/working/dataset_51681cfb-4675-496f-9aaf-724e6507d780.dat.conll\nAnnotating file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/5/1/6/dataset_51681cfb-4675-496f-9aaf-724e6507d780.dat ... done [5.5 sec].\n\nAnnotation pipeline timing information:\nTokenizerAnnotator: 0.1 sec.\nPOSTaggerAnnotator: 0.3 sec.\nMorphaAnnotator: 0.6 sec.\nNERCombinerAnnotator: 0.7 sec.\nParserAnnotator: 3.8 sec.\nTOTAL: 5.5 sec. for 22 tokens at 4.0 tokens/sec.\nPipeline setup: 13.1 sec.\nTotal time for StanfordCoreNLP pipeline: 18.8 sec.\n",
+                    "tool_stdout": "",
+                    "update_time": "2026-05-22T16:52:57.025621",
+                    "user_email": "planemo@galaxyproject.org",
+                    "user_id": "20195186e24efb48"
+                },
+                "status": "success",
+                "test_index": 1,
+                "time_seconds": 33.66736388206482,
+                "tool_id": "stanford_corenlp",
+                "tool_version": "4.5.10+galaxy4"
+            },
+            "has_data": true,
+            "id": "stanford_corenlp-1"
+        },
+        {
+            "data": {
+                "inputs": {
+                    "annotators": "parse",
+                    "format": "conllu",
+                    "input": {
+                        "id": "41481e35e5def4ab",
+                        "src": "hda"
+                    },
+                    "language_model": "en"
+                },
+                "job": {
+                    "command_line": "ln -s '/Users/suderman/Workspaces/JHU/NLP/tools/galaxy_tools_corenlp/test-data/stanford-corenlp-4.5.10-models-english.jar' ./model.jar && echo 'pos.model = edu/stanford/nlp/models/pos-tagger/english-bidirectional-distsim.tagger' > corenlp.properties && echo 'parse.model = edu/stanford/nlp/models/lexparser/englishPCFG.caseless.ser.gz' >> corenlp.properties && echo 'ner.model = edu/stanford/nlp/models/ner/english.all.3class.caseless.distsim.crf.ser.gz,edu/stanford/nlp/models/ner/english.muc.7class.caseless.distsim.crf.ser.gz,edu/stanford/nlp/models/ner/english.conll.4class.caseless.distsim.crf.ser.gz' >> corenlp.properties && echo 'ner.applyFineGrained = false' >> corenlp.properties && echo 'coref.algorithm = statistical' >> corenlp.properties && echo 'sentiment.model = edu/stanford/nlp/models/sentiment/sentiment.binary.ser.gz' >> corenlp.properties && export CLASSPATH=\"./model.jar:/opt/corenlp/*:/opt/corenlp:$CLASSPATH\" && java -Xmx4g -cp \"$CLASSPATH\" edu.stanford.nlp.pipeline.StanfordCoreNLP -props corenlp.properties -annotators tokenize,pos,lemma,ner,parse -outputFormat conllu -outputDirectory . -file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/0/2/1/dataset_02171b6c-d5e7-4efb-98e5-0117da87fe4a.dat && mv `basename /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/0/2/1/dataset_02171b6c-d5e7-4efb-98e5-0117da87fe4a.dat`.conllu /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/job_working_directory/000/6/outputs/dataset_c966ba71-2322-41fb-a691-aa2d72d695b7.dat",
+                    "command_version": "4.5.10",
+                    "copied_from_job_id": null,
+                    "create_time": "2026-05-22T16:53:01.049108",
+                    "dependencies": [],
+                    "exit_code": 0,
+                    "external_id": "92643",
+                    "galaxy_version": "25.1",
+                    "handler": null,
+                    "history_id": "b79ae497816be34f",
+                    "id": "5b37d49c59e6135d",
+                    "inputs": {
+                        "input": {
+                            "id": "41481e35e5def4ab",
+                            "src": "hda",
+                            "uuid": "02171b6c-d5e7-4efb-98e5-0117da87fe4a"
+                        }
+                    },
+                    "job_messages": [],
+                    "job_metrics": [
+                        {
+                            "name": "container_id",
+                            "plugin": "core",
+                            "raw_value": "ksuderman/corenlp:4.5.10",
+                            "title": "Container ID",
+                            "value": "ksuderman/corenlp:4.5.10"
+                        },
+                        {
+                            "name": "container_type",
+                            "plugin": "core",
+                            "raw_value": "docker",
+                            "title": "Container Type",
+                            "value": "docker"
+                        },
+                        {
+                            "name": "galaxy_slots",
+                            "plugin": "core",
+                            "raw_value": "1.0000000",
+                            "title": "Cores Allocated",
+                            "value": "1"
+                        },
+                        {
+                            "name": "start_epoch",
+                            "plugin": "core",
+                            "raw_value": "1779468781.0000000",
+                            "title": "Job Start Time",
+                            "value": "2026-05-22 12:53:01"
+                        },
+                        {
+                            "name": "end_epoch",
+                            "plugin": "core",
+                            "raw_value": "1779468812.0000000",
+                            "title": "Job End Time",
+                            "value": "2026-05-22 12:53:32"
+                        },
+                        {
+                            "name": "runtime_seconds",
+                            "plugin": "core",
+                            "raw_value": "31.0000000",
+                            "title": "Job Runtime (Wall Clock)",
+                            "value": "31 seconds"
+                        }
+                    ],
+                    "job_runner_name": null,
+                    "job_stderr": "",
+                    "job_stdout": "",
+                    "model_class": "Job",
+                    "output_collections": {},
+                    "outputs": {
+                        "outputFile": {
+                            "id": "5b37d49c59e6135d",
+                            "src": "hda",
+                            "uuid": "c966ba71-2322-41fb-a691-aa2d72d695b7"
+                        }
+                    },
+                    "params": {
+                        "__input_ext": "\"input\"",
+                        "annotators": "\"parse\"",
+                        "chromInfo": "\"/Users/suderman/Workspaces/JHU/galaxy/tool-data/shared/ucsc/chrom/?.len\"",
+                        "dbkey": "\"?\"",
+                        "format": "\"conllu\"",
+                        "language_model": "\"en\""
+                    },
+                    "state": "ok",
+                    "stderr": "WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested\nAdding annotator tokenize\nAdding annotator pos\nLoading POS tagger from edu/stanford/nlp/models/pos-tagger/english-bidirectional-distsim.tagger ... done [3.2 sec].\nAdding annotator lemma\nAdding annotator ner\nLoading classifier from edu/stanford/nlp/models/ner/english.all.3class.caseless.distsim.crf.ser.gz ... done [5.3 sec].\nLoading classifier from edu/stanford/nlp/models/ner/english.muc.7class.caseless.distsim.crf.ser.gz ... done [1.8 sec].\nLoading classifier from edu/stanford/nlp/models/ner/english.conll.4class.caseless.distsim.crf.ser.gz ... done [2.7 sec].\nnumeric classifiers: true; SUTime: false [no docDate]; fine grained: false\nAdding annotator parse\nLoading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.caseless.ser.gz ... done [1.8 sec].\n\nProcessing file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/0/2/1/dataset_02171b6c-d5e7-4efb-98e5-0117da87fe4a.dat ... writing to /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/job_working_directory/000/6/working/dataset_02171b6c-d5e7-4efb-98e5-0117da87fe4a.dat.conllu\nAnnotating file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/0/2/1/dataset_02171b6c-d5e7-4efb-98e5-0117da87fe4a.dat ... done [5.0 sec].\n\nAnnotation pipeline timing information:\nTokenizerAnnotator: 0.1 sec.\nPOSTaggerAnnotator: 0.4 sec.\nMorphaAnnotator: 0.5 sec.\nNERCombinerAnnotator: 0.7 sec.\nParserAnnotator: 3.2 sec.\nTOTAL: 5.0 sec. for 22 tokens at 4.4 tokens/sec.\nPipeline setup: 16.1 sec.\nTotal time for StanfordCoreNLP pipeline: 21.3 sec.\n",
+                    "stdout": "",
+                    "tool_id": "stanford_corenlp",
+                    "tool_stderr": "WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested\nAdding annotator tokenize\nAdding annotator pos\nLoading POS tagger from edu/stanford/nlp/models/pos-tagger/english-bidirectional-distsim.tagger ... done [3.2 sec].\nAdding annotator lemma\nAdding annotator ner\nLoading classifier from edu/stanford/nlp/models/ner/english.all.3class.caseless.distsim.crf.ser.gz ... done [5.3 sec].\nLoading classifier from edu/stanford/nlp/models/ner/english.muc.7class.caseless.distsim.crf.ser.gz ... done [1.8 sec].\nLoading classifier from edu/stanford/nlp/models/ner/english.conll.4class.caseless.distsim.crf.ser.gz ... done [2.7 sec].\nnumeric classifiers: true; SUTime: false [no docDate]; fine grained: false\nAdding annotator parse\nLoading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.caseless.ser.gz ... done [1.8 sec].\n\nProcessing file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/0/2/1/dataset_02171b6c-d5e7-4efb-98e5-0117da87fe4a.dat ... writing to /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/job_working_directory/000/6/working/dataset_02171b6c-d5e7-4efb-98e5-0117da87fe4a.dat.conllu\nAnnotating file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/0/2/1/dataset_02171b6c-d5e7-4efb-98e5-0117da87fe4a.dat ... done [5.0 sec].\n\nAnnotation pipeline timing information:\nTokenizerAnnotator: 0.1 sec.\nPOSTaggerAnnotator: 0.4 sec.\nMorphaAnnotator: 0.5 sec.\nNERCombinerAnnotator: 0.7 sec.\nParserAnnotator: 3.2 sec.\nTOTAL: 5.0 sec. for 22 tokens at 4.4 tokens/sec.\nPipeline setup: 16.1 sec.\nTotal time for StanfordCoreNLP pipeline: 21.3 sec.\n",
+                    "tool_stdout": "",
+                    "update_time": "2026-05-22T16:53:32.663777",
+                    "user_email": "planemo@galaxyproject.org",
+                    "user_id": "20195186e24efb48"
+                },
+                "status": "success",
+                "test_index": 2,
+                "time_seconds": 35.396477937698364,
+                "tool_id": "stanford_corenlp",
+                "tool_version": "4.5.10+galaxy4"
+            },
+            "has_data": true,
+            "id": "stanford_corenlp-2"
+        },
+        {
+            "data": {
+                "inputs": {
+                    "annotators": "tokenize",
+                    "format": "text",
+                    "input": {
+                        "id": "9215af37695f35db",
+                        "src": "hda"
+                    },
+                    "language_model": "en"
+                },
+                "job": {
+                    "command_line": "ln -s '/Users/suderman/Workspaces/JHU/NLP/tools/galaxy_tools_corenlp/test-data/stanford-corenlp-4.5.10-models-english.jar' ./model.jar && echo 'pos.model = edu/stanford/nlp/models/pos-tagger/english-bidirectional-distsim.tagger' > corenlp.properties && echo 'parse.model = edu/stanford/nlp/models/lexparser/englishPCFG.caseless.ser.gz' >> corenlp.properties && echo 'ner.model = edu/stanford/nlp/models/ner/english.all.3class.caseless.distsim.crf.ser.gz,edu/stanford/nlp/models/ner/english.muc.7class.caseless.distsim.crf.ser.gz,edu/stanford/nlp/models/ner/english.conll.4class.caseless.distsim.crf.ser.gz' >> corenlp.properties && echo 'ner.applyFineGrained = false' >> corenlp.properties && echo 'coref.algorithm = statistical' >> corenlp.properties && echo 'sentiment.model = edu/stanford/nlp/models/sentiment/sentiment.binary.ser.gz' >> corenlp.properties && export CLASSPATH=\"./model.jar:/opt/corenlp/*:/opt/corenlp:$CLASSPATH\" && java -Xmx4g -cp \"$CLASSPATH\" edu.stanford.nlp.pipeline.StanfordCoreNLP -props corenlp.properties -annotators tokenize -outputFormat text -outputDirectory . -file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/7/1/6/dataset_71622c01-a75a-48fa-9301-c03b78d6a8a3.dat && mv `basename /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/7/1/6/dataset_71622c01-a75a-48fa-9301-c03b78d6a8a3.dat`.out /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/job_working_directory/000/8/outputs/dataset_01fb2d38-0542-487f-8f59-c65a08b34192.dat",
+                    "command_version": "4.5.10",
+                    "copied_from_job_id": null,
+                    "create_time": "2026-05-22T16:53:36.290473",
+                    "dependencies": [],
+                    "exit_code": 0,
+                    "external_id": "95224",
+                    "galaxy_version": "25.1",
+                    "handler": null,
+                    "history_id": "0e61b6e86607e7c4",
+                    "id": "f24512d274906a4f",
+                    "inputs": {
+                        "input": {
+                            "id": "9215af37695f35db",
+                            "src": "hda",
+                            "uuid": "71622c01-a75a-48fa-9301-c03b78d6a8a3"
+                        }
+                    },
+                    "job_messages": [],
+                    "job_metrics": [
+                        {
+                            "name": "container_id",
+                            "plugin": "core",
+                            "raw_value": "ksuderman/corenlp:4.5.10",
+                            "title": "Container ID",
+                            "value": "ksuderman/corenlp:4.5.10"
+                        },
+                        {
+                            "name": "container_type",
+                            "plugin": "core",
+                            "raw_value": "docker",
+                            "title": "Container Type",
+                            "value": "docker"
+                        },
+                        {
+                            "name": "galaxy_slots",
+                            "plugin": "core",
+                            "raw_value": "1.0000000",
+                            "title": "Cores Allocated",
+                            "value": "1"
+                        },
+                        {
+                            "name": "start_epoch",
+                            "plugin": "core",
+                            "raw_value": "1779468817.0000000",
+                            "title": "Job Start Time",
+                            "value": "2026-05-22 12:53:37"
+                        },
+                        {
+                            "name": "end_epoch",
+                            "plugin": "core",
+                            "raw_value": "1779468827.0000000",
+                            "title": "Job End Time",
+                            "value": "2026-05-22 12:53:47"
+                        },
+                        {
+                            "name": "runtime_seconds",
+                            "plugin": "core",
+                            "raw_value": "10.0000000",
+                            "title": "Job Runtime (Wall Clock)",
+                            "value": "10 seconds"
+                        }
+                    ],
+                    "job_runner_name": null,
+                    "job_stderr": "",
+                    "job_stdout": "",
+                    "model_class": "Job",
+                    "output_collections": {},
+                    "outputs": {
+                        "outputFile": {
+                            "id": "f24512d274906a4f",
+                            "src": "hda",
+                            "uuid": "01fb2d38-0542-487f-8f59-c65a08b34192"
+                        }
+                    },
+                    "params": {
+                        "__input_ext": "\"input\"",
+                        "annotators": "\"tokenize\"",
+                        "chromInfo": "\"/Users/suderman/Workspaces/JHU/galaxy/tool-data/shared/ucsc/chrom/?.len\"",
+                        "dbkey": "\"?\"",
+                        "format": "\"text\"",
+                        "language_model": "\"en\""
+                    },
+                    "state": "ok",
+                    "stderr": "WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested\nAdding annotator tokenize\n\nProcessing file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/7/1/6/dataset_71622c01-a75a-48fa-9301-c03b78d6a8a3.dat ... writing to /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/job_working_directory/000/8/working/dataset_71622c01-a75a-48fa-9301-c03b78d6a8a3.dat.out\nAnnotating file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/7/1/6/dataset_71622c01-a75a-48fa-9301-c03b78d6a8a3.dat ... done [0.2 sec].\n\nAnnotation pipeline timing information:\nTokenizerAnnotator: 0.2 sec.\nTOTAL: 0.2 sec. for 12 tokens at 62.5 tokens/sec.\nPipeline setup: 0.2 sec.\nTotal time for StanfordCoreNLP pipeline: 0.9 sec.\n",
+                    "stdout": "",
+                    "tool_id": "stanford_corenlp",
+                    "tool_stderr": "WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested\nAdding annotator tokenize\n\nProcessing file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/7/1/6/dataset_71622c01-a75a-48fa-9301-c03b78d6a8a3.dat ... writing to /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/job_working_directory/000/8/working/dataset_71622c01-a75a-48fa-9301-c03b78d6a8a3.dat.out\nAnnotating file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/7/1/6/dataset_71622c01-a75a-48fa-9301-c03b78d6a8a3.dat ... done [0.2 sec].\n\nAnnotation pipeline timing information:\nTokenizerAnnotator: 0.2 sec.\nTOTAL: 0.2 sec. for 12 tokens at 62.5 tokens/sec.\nPipeline setup: 0.2 sec.\nTotal time for StanfordCoreNLP pipeline: 0.9 sec.\n",
+                    "tool_stdout": "",
+                    "update_time": "2026-05-22T16:53:47.161448",
+                    "user_email": "planemo@galaxyproject.org",
+                    "user_id": "20195186e24efb48"
+                },
+                "status": "success",
+                "test_index": 3,
+                "time_seconds": 14.560793161392212,
+                "tool_id": "stanford_corenlp",
+                "tool_version": "4.5.10+galaxy4"
+            },
+            "has_data": true,
+            "id": "stanford_corenlp-3"
+        },
+        {
+            "data": {
+                "inputs": {
+                    "annotators": "tokenize",
+                    "format": "xml",
+                    "input": {
+                        "id": "1cf71c1c9f87fb34",
+                        "src": "hda"
+                    },
+                    "language_model": "en"
+                },
+                "job": {
+                    "command_line": "ln -s '/Users/suderman/Workspaces/JHU/NLP/tools/galaxy_tools_corenlp/test-data/stanford-corenlp-4.5.10-models-english.jar' ./model.jar && echo 'pos.model = edu/stanford/nlp/models/pos-tagger/english-bidirectional-distsim.tagger' > corenlp.properties && echo 'parse.model = edu/stanford/nlp/models/lexparser/englishPCFG.caseless.ser.gz' >> corenlp.properties && echo 'ner.model = edu/stanford/nlp/models/ner/english.all.3class.caseless.distsim.crf.ser.gz,edu/stanford/nlp/models/ner/english.muc.7class.caseless.distsim.crf.ser.gz,edu/stanford/nlp/models/ner/english.conll.4class.caseless.distsim.crf.ser.gz' >> corenlp.properties && echo 'ner.applyFineGrained = false' >> corenlp.properties && echo 'coref.algorithm = statistical' >> corenlp.properties && echo 'sentiment.model = edu/stanford/nlp/models/sentiment/sentiment.binary.ser.gz' >> corenlp.properties && export CLASSPATH=\"./model.jar:/opt/corenlp/*:/opt/corenlp:$CLASSPATH\" && java -Xmx4g -cp \"$CLASSPATH\" edu.stanford.nlp.pipeline.StanfordCoreNLP -props corenlp.properties -annotators tokenize -outputFormat xml -outputDirectory . -file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/b/2/8/dataset_b28349e3-8475-4364-acf4-cde867a30fdd.dat && mv `basename /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/b/2/8/dataset_b28349e3-8475-4364-acf4-cde867a30fdd.dat`.xml /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/job_working_directory/000/10/outputs/dataset_2e9292c9-5bb8-418e-b106-66652ab56aff.dat",
+                    "command_version": "4.5.10",
+                    "copied_from_job_id": null,
+                    "create_time": "2026-05-22T16:53:51.878980",
+                    "dependencies": [],
+                    "exit_code": 0,
+                    "external_id": "95851",
+                    "galaxy_version": "25.1",
+                    "handler": null,
+                    "history_id": "41481e35e5def4ab",
+                    "id": "19236df5555236e0",
+                    "inputs": {
+                        "input": {
+                            "id": "1cf71c1c9f87fb34",
+                            "src": "hda",
+                            "uuid": "b28349e3-8475-4364-acf4-cde867a30fdd"
+                        }
+                    },
+                    "job_messages": [],
+                    "job_metrics": [
+                        {
+                            "name": "container_id",
+                            "plugin": "core",
+                            "raw_value": "ksuderman/corenlp:4.5.10",
+                            "title": "Container ID",
+                            "value": "ksuderman/corenlp:4.5.10"
+                        },
+                        {
+                            "name": "container_type",
+                            "plugin": "core",
+                            "raw_value": "docker",
+                            "title": "Container Type",
+                            "value": "docker"
+                        },
+                        {
+                            "name": "galaxy_slots",
+                            "plugin": "core",
+                            "raw_value": "1.0000000",
+                            "title": "Cores Allocated",
+                            "value": "1"
+                        },
+                        {
+                            "name": "start_epoch",
+                            "plugin": "core",
+                            "raw_value": "1779468832.0000000",
+                            "title": "Job Start Time",
+                            "value": "2026-05-22 12:53:52"
+                        },
+                        {
+                            "name": "end_epoch",
+                            "plugin": "core",
+                            "raw_value": "1779468843.0000000",
+                            "title": "Job End Time",
+                            "value": "2026-05-22 12:54:03"
+                        },
+                        {
+                            "name": "runtime_seconds",
+                            "plugin": "core",
+                            "raw_value": "11.0000000",
+                            "title": "Job Runtime (Wall Clock)",
+                            "value": "11 seconds"
+                        }
+                    ],
+                    "job_runner_name": null,
+                    "job_stderr": "",
+                    "job_stdout": "",
+                    "model_class": "Job",
+                    "output_collections": {},
+                    "outputs": {
+                        "outputFile": {
+                            "id": "19236df5555236e0",
+                            "src": "hda",
+                            "uuid": "2e9292c9-5bb8-418e-b106-66652ab56aff"
+                        }
+                    },
+                    "params": {
+                        "__input_ext": "\"input\"",
+                        "annotators": "\"tokenize\"",
+                        "chromInfo": "\"/Users/suderman/Workspaces/JHU/galaxy/tool-data/shared/ucsc/chrom/?.len\"",
+                        "dbkey": "\"?\"",
+                        "format": "\"xml\"",
+                        "language_model": "\"en\""
+                    },
+                    "state": "ok",
+                    "stderr": "WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested\nAdding annotator tokenize\n\nProcessing file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/b/2/8/dataset_b28349e3-8475-4364-acf4-cde867a30fdd.dat ... writing to /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/job_working_directory/000/10/working/dataset_b28349e3-8475-4364-acf4-cde867a30fdd.dat.xml\nAnnotating file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/b/2/8/dataset_b28349e3-8475-4364-acf4-cde867a30fdd.dat ... done [0.2 sec].\n\nAnnotation pipeline timing information:\nTokenizerAnnotator: 0.2 sec.\nTOTAL: 0.2 sec. for 12 tokens at 56.1 tokens/sec.\nPipeline setup: 0.3 sec.\nTotal time for StanfordCoreNLP pipeline: 1.1 sec.\n",
+                    "stdout": "",
+                    "tool_id": "stanford_corenlp",
+                    "tool_stderr": "WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested\nAdding annotator tokenize\n\nProcessing file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/b/2/8/dataset_b28349e3-8475-4364-acf4-cde867a30fdd.dat ... writing to /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/job_working_directory/000/10/working/dataset_b28349e3-8475-4364-acf4-cde867a30fdd.dat.xml\nAnnotating file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/b/2/8/dataset_b28349e3-8475-4364-acf4-cde867a30fdd.dat ... done [0.2 sec].\n\nAnnotation pipeline timing information:\nTokenizerAnnotator: 0.2 sec.\nTOTAL: 0.2 sec. for 12 tokens at 56.1 tokens/sec.\nPipeline setup: 0.3 sec.\nTotal time for StanfordCoreNLP pipeline: 1.1 sec.\n",
+                    "tool_stdout": "",
+                    "update_time": "2026-05-22T16:54:03.198471",
+                    "user_email": "planemo@galaxyproject.org",
+                    "user_id": "20195186e24efb48"
+                },
+                "status": "success",
+                "test_index": 4,
+                "time_seconds": 15.888582944869995,
+                "tool_id": "stanford_corenlp",
+                "tool_version": "4.5.10+galaxy4"
+            },
+            "has_data": true,
+            "id": "stanford_corenlp-4"
+        },
+        {
+            "data": {
+                "inputs": {
+                    "annotators": "sentiment",
+                    "format": "json",
+                    "input": {
+                        "id": "cee064f252f864ef",
+                        "src": "hda"
+                    },
+                    "language_model": "en"
+                },
+                "job": {
+                    "command_line": "ln -s '/Users/suderman/Workspaces/JHU/NLP/tools/galaxy_tools_corenlp/test-data/stanford-corenlp-4.5.10-models-english.jar' ./model.jar && echo 'pos.model = edu/stanford/nlp/models/pos-tagger/english-bidirectional-distsim.tagger' > corenlp.properties && echo 'parse.model = edu/stanford/nlp/models/lexparser/englishPCFG.caseless.ser.gz' >> corenlp.properties && echo 'ner.model = edu/stanford/nlp/models/ner/english.all.3class.caseless.distsim.crf.ser.gz,edu/stanford/nlp/models/ner/english.muc.7class.caseless.distsim.crf.ser.gz,edu/stanford/nlp/models/ner/english.conll.4class.caseless.distsim.crf.ser.gz' >> corenlp.properties && echo 'ner.applyFineGrained = false' >> corenlp.properties && echo 'coref.algorithm = statistical' >> corenlp.properties && echo 'sentiment.model = edu/stanford/nlp/models/sentiment/sentiment.binary.ser.gz' >> corenlp.properties && export CLASSPATH=\"./model.jar:/opt/corenlp/*:/opt/corenlp:$CLASSPATH\" && java -Xmx4g -cp \"$CLASSPATH\" edu.stanford.nlp.pipeline.StanfordCoreNLP -props corenlp.properties -annotators tokenize,pos,lemma,parse,sentiment -outputFormat json -outputDirectory . -file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/b/b/0/dataset_bb0c0cc0-94e6-49f3-a501-3e5bdf4b4739.dat && mv `basename /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/b/b/0/dataset_bb0c0cc0-94e6-49f3-a501-3e5bdf4b4739.dat`.json /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/job_working_directory/000/12/outputs/dataset_563906ed-e70d-4344-9141-5180b461ebb3.dat",
+                    "command_version": "4.5.10",
+                    "copied_from_job_id": null,
+                    "create_time": "2026-05-22T16:54:07.013694",
+                    "dependencies": [],
+                    "exit_code": 0,
+                    "external_id": "96473",
+                    "galaxy_version": "25.1",
+                    "handler": null,
+                    "history_id": "5b37d49c59e6135d",
+                    "id": "09866cf87adf913e",
+                    "inputs": {
+                        "input": {
+                            "id": "cee064f252f864ef",
+                            "src": "hda",
+                            "uuid": "bb0c0cc0-94e6-49f3-a501-3e5bdf4b4739"
+                        }
+                    },
+                    "job_messages": [],
+                    "job_metrics": [
+                        {
+                            "name": "container_id",
+                            "plugin": "core",
+                            "raw_value": "ksuderman/corenlp:4.5.10",
+                            "title": "Container ID",
+                            "value": "ksuderman/corenlp:4.5.10"
+                        },
+                        {
+                            "name": "container_type",
+                            "plugin": "core",
+                            "raw_value": "docker",
+                            "title": "Container Type",
+                            "value": "docker"
+                        },
+                        {
+                            "name": "galaxy_slots",
+                            "plugin": "core",
+                            "raw_value": "1.0000000",
+                            "title": "Cores Allocated",
+                            "value": "1"
+                        },
+                        {
+                            "name": "start_epoch",
+                            "plugin": "core",
+                            "raw_value": "1779468848.0000000",
+                            "title": "Job Start Time",
+                            "value": "2026-05-22 12:54:08"
+                        },
+                        {
+                            "name": "end_epoch",
+                            "plugin": "core",
+                            "raw_value": "1779468866.0000000",
+                            "title": "Job End Time",
+                            "value": "2026-05-22 12:54:26"
+                        },
+                        {
+                            "name": "runtime_seconds",
+                            "plugin": "core",
+                            "raw_value": "18.0000000",
+                            "title": "Job Runtime (Wall Clock)",
+                            "value": "18 seconds"
+                        }
+                    ],
+                    "job_runner_name": null,
+                    "job_stderr": "",
+                    "job_stdout": "",
+                    "model_class": "Job",
+                    "output_collections": {},
+                    "outputs": {
+                        "outputFile": {
+                            "id": "09866cf87adf913e",
+                            "src": "hda",
+                            "uuid": "563906ed-e70d-4344-9141-5180b461ebb3"
+                        }
+                    },
+                    "params": {
+                        "__input_ext": "\"input\"",
+                        "annotators": "\"sentiment\"",
+                        "chromInfo": "\"/Users/suderman/Workspaces/JHU/galaxy/tool-data/shared/ucsc/chrom/?.len\"",
+                        "dbkey": "\"?\"",
+                        "format": "\"json\"",
+                        "language_model": "\"en\""
+                    },
+                    "state": "ok",
+                    "stderr": "WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested\nAdding annotator tokenize\nAdding annotator pos\nLoading POS tagger from edu/stanford/nlp/models/pos-tagger/english-bidirectional-distsim.tagger ... done [2.6 sec].\nAdding annotator lemma\nAdding annotator parse\nLoading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.caseless.ser.gz ... done [2.8 sec].\nAdding annotator sentiment\nLoading sentiment model edu/stanford/nlp/models/sentiment/sentiment.binary.ser.gz ... done [0.9 sec].\n\nProcessing file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/b/b/0/dataset_bb0c0cc0-94e6-49f3-a501-3e5bdf4b4739.dat ... writing to /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/job_working_directory/000/12/working/dataset_bb0c0cc0-94e6-49f3-a501-3e5bdf4b4739.dat.json\nAnnotating file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/b/b/0/dataset_bb0c0cc0-94e6-49f3-a501-3e5bdf4b4739.dat ... done [2.7 sec].\n\nAnnotation pipeline timing information:\nTokenizerAnnotator: 0.2 sec.\nPOSTaggerAnnotator: 0.2 sec.\nMorphaAnnotator: 0.1 sec.\nParserAnnotator: 2.0 sec.\nSentimentAnnotator: 0.2 sec.\nTOTAL: 2.7 sec. for 11 tokens at 4.1 tokens/sec.\nPipeline setup: 6.7 sec.\nTotal time for StanfordCoreNLP pipeline: 9.8 sec.\n",
+                    "stdout": "",
+                    "tool_id": "stanford_corenlp",
+                    "tool_stderr": "WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested\nAdding annotator tokenize\nAdding annotator pos\nLoading POS tagger from edu/stanford/nlp/models/pos-tagger/english-bidirectional-distsim.tagger ... done [2.6 sec].\nAdding annotator lemma\nAdding annotator parse\nLoading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.caseless.ser.gz ... done [2.8 sec].\nAdding annotator sentiment\nLoading sentiment model edu/stanford/nlp/models/sentiment/sentiment.binary.ser.gz ... done [0.9 sec].\n\nProcessing file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/b/b/0/dataset_bb0c0cc0-94e6-49f3-a501-3e5bdf4b4739.dat ... writing to /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/job_working_directory/000/12/working/dataset_bb0c0cc0-94e6-49f3-a501-3e5bdf4b4739.dat.json\nAnnotating file /private/var/folders/3g/l8qm57w53zl2ndjlblpgd26h0000gp/T/tmpdfb2af6c/files/b/b/0/dataset_bb0c0cc0-94e6-49f3-a501-3e5bdf4b4739.dat ... done [2.7 sec].\n\nAnnotation pipeline timing information:\nTokenizerAnnotator: 0.2 sec.\nPOSTaggerAnnotator: 0.2 sec.\nMorphaAnnotator: 0.1 sec.\nParserAnnotator: 2.0 sec.\nSentimentAnnotator: 0.2 sec.\nTOTAL: 2.7 sec. for 11 tokens at 4.1 tokens/sec.\nPipeline setup: 6.7 sec.\nTotal time for StanfordCoreNLP pipeline: 9.8 sec.\n",
+                    "tool_stdout": "",
+                    "update_time": "2026-05-22T16:54:26.401521",
+                    "user_email": "planemo@galaxyproject.org",
+                    "user_id": "20195186e24efb48"
+                },
+                "status": "success",
+                "test_index": 5,
+                "time_seconds": 23.2460618019104,
+                "tool_id": "stanford_corenlp",
+                "tool_version": "4.5.10+galaxy4"
+            },
+            "has_data": true,
+            "id": "stanford_corenlp-5"
+        }
+    ],
+    "version": "0.1"
+}

@@ -1,17 +1,17 @@
-<tool id="stanford_corenlp" name="Stanford CoreNLP Annotators (Multi-language)" version="@VERSION@+galaxy@VERSION_SUFFIX@" python_template_version="3.5" profile="21.05">
+<tool id="stanford_corenlp" name="Stanford CoreNLP Annotators (Multi-language)" version="@TOOL_VERSION@+galaxy@VERSION_SUFFIX@" python_template_version="3.5" profile="21.05">
     <macros>
         <import>macros.xml</import>
     </macros>
     <requirements>
-		<container type="docker">ksuderman/corenlp:@VERSION@</container>
+		<container type="docker">ksuderman/corenlp:@TOOL_VERSION@</container>
     </requirements>
     <version_command><![CDATA[
-echo "@VERSION@"
+echo "@TOOL_VERSION@"
     ]]></version_command>
     <command detect_errors="exit_code"><![CDATA[
     ln -s '${language_model.fields.models_path}' ./model.jar &&
     #if $annotators == "coref"
-    ln -s \$(grep -E "^common\s" '${__tool_data_path__}/corenlp_models.loc' | cut -f4) ./common.jar &&
+    ln -s "\$(dirname '${language_model.fields.models_path}')/stanford-corenlp-@TOOL_VERSION@-models.jar" ./common.jar &&
     #end if
     #if $language_model.fields.lang_code == "en"
     echo 'pos.model = edu/stanford/nlp/models/pos-tagger/english-bidirectional-distsim.tagger' > corenlp.properties &&
@@ -23,23 +23,28 @@ echo "@VERSION@"
     #else if $language_model.fields.lang_code == "zh"
     echo 'pos.model = edu/stanford/nlp/models/pos-tagger/chinese-distsim.tagger' > corenlp.properties &&
     echo 'ner.model = edu/stanford/nlp/models/ner/chinese.misc.distsim.crf.ser.gz' >> corenlp.properties &&
+    echo 'ner.applyFineGrained = false' >> corenlp.properties &&
     echo 'parse.model = edu/stanford/nlp/models/lexparser/chinesePCFG.ser.gz' >> corenlp.properties &&
     echo 'coref.algorithm = statistical' >> corenlp.properties &&
     #else if $language_model.fields.lang_code == "fr"
     echo 'pos.model = edu/stanford/nlp/models/pos-tagger/french-ud.tagger' > corenlp.properties &&
     echo 'ner.model = edu/stanford/nlp/models/ner/french.crf.gz' >> corenlp.properties &&
+    echo 'ner.applyFineGrained = false' >> corenlp.properties &&
     echo 'parse.model = edu/stanford/nlp/models/lexparser/frenchFactored.ser.gz' >> corenlp.properties &&
     #else if $language_model.fields.lang_code == "de"
     echo 'pos.model = edu/stanford/nlp/models/pos-tagger/german-ud.tagger' > corenlp.properties &&
     echo 'ner.model = edu/stanford/nlp/models/ner/german.conll.hgc_175m_600.crf.ser.gz' >> corenlp.properties &&
+    echo 'ner.applyFineGrained = false' >> corenlp.properties &&
     echo 'parse.model = edu/stanford/nlp/models/lexparser/germanFactored.ser.gz' >> corenlp.properties &&
     #else if $language_model.fields.lang_code == "es"
     echo 'pos.model = edu/stanford/nlp/models/pos-tagger/spanish-ud.tagger' > corenlp.properties &&
     echo 'ner.model = edu/stanford/nlp/models/ner/spanish.ancora.distsim.s512.crf.ser.gz' >> corenlp.properties &&
+    echo 'ner.applyFineGrained = false' >> corenlp.properties &&
     echo 'parse.model = edu/stanford/nlp/models/lexparser/spanishPCFG.ser.gz' >> corenlp.properties &&
     #else if $language_model.fields.lang_code == "it"
     echo 'pos.model = edu/stanford/nlp/models/pos-tagger/italian-ud.tagger' > corenlp.properties &&
     echo 'ner.model = edu/stanford/nlp/models/ner/italian.crf.gz' >> corenlp.properties &&
+    echo 'ner.applyFineGrained = false' >> corenlp.properties &&
     echo 'parse.model = edu/stanford/nlp/models/lexparser/italianFactored.ser.gz' >> corenlp.properties &&
     #else
     touch corenlp.properties &&
@@ -102,7 +107,14 @@ echo "@VERSION@"
 		</param>
     </inputs>
     <outputs>
-    	<data name="outputFile" format="txt"/>
+    	<data name="outputFile" format="txt" label="${tool.name} (${annotators}) on ${on_string}">
+    		<change_format>
+    			<when input="format" value="json" format="json"/>
+    			<when input="format" value="xml" format="xml"/>
+    			<when input="format" value="conllu" format="tabular"/>
+    			<when input="format" value="conll" format="tabular"/>
+    		</change_format>
+    	</data>
     </outputs>
     <tests>
     	<test>

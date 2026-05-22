@@ -1,5 +1,5 @@
 name: stanford_corenlp
-owner: ksuderman
+owner: iuc
 description: Stanford CoreNLP Annotators for multi-language natural language processing
 long_description: |
   Galaxy wrappers for Stanford CoreNLP annotators supporting multiple languages
